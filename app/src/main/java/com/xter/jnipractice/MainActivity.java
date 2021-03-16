@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 		Log.i("jni", "Profile=" + SomeFunc.genProfile());
 
 		byte[] b1 = BytesUtils.intTo1Bytes(1);
-		byte[] b2 = BytesUtils.intTo1Bytes(24);
+		byte[] b2 = BytesUtils.intTo4Bytes(45);
 		byte[] b3 = "委员称香港的教育必须向祖国学习".getBytes();
 		byte[] buffer = BytesUtils.mergerBytes(b1,b2,b3);
 //		Log.i("jni", BytesUtils.bytesToHexString(buffer));

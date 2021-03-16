@@ -5,5 +5,7 @@ project (start)
 add_library(start SHARED src/main/cpp/start.cpp)
 #查找本地 库
 find_library(xter start)
+find_library(log-lib log)
+
 #将预构建的库添加到自己的原生库
 target_link_libraries(start ${log-lib})
