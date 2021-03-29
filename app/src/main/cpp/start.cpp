@@ -95,17 +95,17 @@ Java_com_xter_jnipractice_SomeFunc_genUser(JNIEnv *env, jclass o) {
 JNIEXPORT jobject JNICALL
 Java_com_xter_jnipractice_SomeFunc_genProfile(JNIEnv *env, jclass o) {
     jclass jc = env->FindClass("com/xter/jnipractice/entity/Profile");
-    jfieldID field_address = env->GetFieldID(jc, "address", "java/lang/String");
+    jfieldID field_address = env->GetFieldID(jc, "address", "Ljava/lang/String;");
     jfieldID field_school = env->GetFieldID(jc, "school", "java/lang/String");
     jfieldID field_degree = env->GetFieldID(jc, "degree", "java/lang/String");
     jfieldID field_phoneNumber = env->GetFieldID(jc, "phoneNumber", "java/lang/String");
     jfieldID field_salary = env->GetFieldID(jc, "salary", "I");
-    jfieldID field_experience = env->GetFieldID(jc, "experience", "java/util/ArrayList");
+    jfieldID field_experience = env->GetFieldID(jc, "experience", "Ljava/util/ArrayList;");
 
     //创建List对象集合
     jclass cls_ArrayList = env->FindClass("java/util/ArrayList");
-    jmethodID construct = env->GetMethodID(cls_ArrayList, "<init>", "()V");
-    jobject obj_ArrayList = env->NewObject(cls_ArrayList, construct, "");
+    jmethodID construct = env->GetMethodID(cls_ArrayList, "<init>", "(I)V");
+    jobject obj_ArrayList = env->NewObject(cls_ArrayList, construct, 3);
     jmethodID arrayList_add = env->GetMethodID(cls_ArrayList, "add", "(Ljava/lang/Object;)Z");
     env->CallBooleanMethod(obj_ArrayList, arrayList_add, env->NewStringUTF("长城贴砖"));
     env->CallBooleanMethod(obj_ArrayList, arrayList_add, env->NewStringUTF("氢弹抛光"));
